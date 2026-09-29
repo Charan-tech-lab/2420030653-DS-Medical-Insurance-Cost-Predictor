@@ -55,12 +55,56 @@ while count < 3:
     count += 1
 
 def greet(name):
-    return f"Hello, {name}!S
+    return f"Hello, {name}!"
 
 print(greet("Alice"))
 
-
+text = "Python"
 print(text[0])
 print(text[:2])
 print(text[:4])
 print(text[:])
+
+
+txt1="My name is {fname},I'm {age}".format(fname = "John", age = 36)
+txt2="My name is {0},I'm {1}".format("John",36)
+txt3="My name is {},I'm {}".format("John",36)
+print(txt1)
+print(txt2)
+print(txt3)
+
+for i in range(1, 6):
+    if i == 3:
+        break
+    print(i)
+
+for i in range(1, 6):
+    if i == 3:
+        continue
+    print(i)
+
+def even_odd(n):
+    if n % 2 == 0:
+        print("Even")
+    else:
+        print("Odd")
+
+n = int(input("Enter a number: "))
+even_odd(n)
+
+import numpy as np
+
+a = np.array([10, 20, 30, 40, 50])
+
+print("Array:", a)
+print("Sum:", np.sum(a))
+print("Mean:", np.mean(a))
+print("Maximum:", np.max(a))
+print("Minimum:", np.min(a))
+
+import numpy as np
+
+a = np.zeros([3, 3])
+b = np.ones([2, 4])
+print(a)
+print(b)

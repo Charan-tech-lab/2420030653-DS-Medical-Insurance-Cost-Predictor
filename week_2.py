@@ -9,10 +9,11 @@ df['Age']=df['Age'].fillna(df['Age'].mean())
 df['Department']=df['Department'].fillna(df['Department'].mode()[0])
 print(df)
 
+
 df=pd.DataFrame({ 'Age':[25,30,np.nan,40,35],
    'Department':['HR','Finance','Finance',np.nan,'IT']})
 print(df)
-print("original Dataset (With Missing Values):")
+print("Original Dataset (With Missing Values):")
 print(df)
 df_ffill = df.copy()
 df_ffill.ffill(inplace=True)
@@ -20,6 +21,7 @@ print(df_ffill)
 df_bfill = df.copy()
 df_bfill.bfill(inplace=True)
 print(df_bfill)
+
 
 df=pd.DataFrame({ 'Age':[25,30,np.nan,40,35],
    'Department':['HR','Finance','Finance',np.nan,'IT']})
@@ -31,7 +33,7 @@ df_drop_rows = df.dropna()
 print("After dropping rows:\n", df_drop_rows)
 
 df_drop_cols = df.dropna(axis=1)
-print("After dropping columns:\n",df_drop_cols)
+print("After dropping columns:\n", df_drop_cols)
 
 
 df=pd.DataFrame({ 
@@ -43,12 +45,11 @@ print("Original Data:\n", df)
 df_exact=df.drop_duplicates()
 print("\nAfter Exact Match Removal:\n", df_exact)
 
-print("Original Date:\n", df)
-df_subset_id = df.drop_duplicates(subset=["ID"])
-print("\nAfter Subset-Based Removal (ID):\n", df_subset_id)
-
-df_subset_name = df.drop_duplicates(subset=['Name'])
-print("\nAfter Subset-Based Removal (Name):\n", df_subset_name)
+print("Original Data:\n", df)
+df_subset_id=df.drop_duplicates(subset=['ID'])
+print("\nAfter Subset-Batch Removal (ID):\n", df_subset_id)
+df_subset_name=df.drop_duplicates(subset=['Name'])
+print("\nAfter Subset-Name Removal (Name):\n", df_subset_name)
 
 
 df=pd.DataFrame({
