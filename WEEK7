@@ -1,0 +1,44 @@
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+from sklearn.datasets import load_iris
+iris = load_iris()
+df = pd.DataFrame(data=iris.data, columns=iris.feature_names)
+df['species'] = iris.target
+plt.figure(figsize=(6,4))
+sns.histplot(df['sepal length (cm)'], bins=20, kde=True)
+plt.title('Distribution of Sepal Length')
+plt.show()
+
+plt.figure(figsize=(6,4))
+sns.boxplot(x=df['sepal length (cm)'])
+plt.title('Boxplot of Sepal Length')
+plt.show()
+
+species_counts = df['species'].value_counts()
+plt.figure(figsize=(6,4))
+plt.pie(species_counts, labels=iris.target_names, autopct='%1.1f%%')
+plt.title('Species Distribution (Pie Chart)')
+plt.show()
+
+
+plt.figure(figsize=(6,4))
+sns.scatterplot(x=df['sepal length (cm)'], y=df['sepal width (cm)'], hue=df['species'])
+plt.title("Scatterplot: Sepal Length vs Sepal Width")
+plt.show()
+
+plt.figure(figsize=(6,4))
+plt.plot(df['sepal length (cm)'])
+plt.title("Line Chart of Sepal Length")
+plt.xlabel("Sample Index")
+plt.ylabel("Sepal Length (cm)")
+plt.show()
+
+plt.figure(figsize=(6,4))
+sns.barplot(x=df['species'], y=df['sepal length (cm)'])
+plt.title("Bar Chart: Mean Sepal Length by Species")
+plt.xticks([0, 1, 2], iris.target_names)
+plt.show()
+
+
+import 
